@@ -80,7 +80,11 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+            implementation(libs.material.icons.extended)
+            implementation("org.jetbrains.compose.material3:material3:1.9.0-alpha04")
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive:1.2.0-alpha05")
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive-layout:1.2.0-alpha05")
+            implementation("org.jetbrains.compose.material3.adaptive:adaptive-navigation:1.2.0-alpha05")
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -99,7 +103,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
-            implementation(libs.androidx.material.icons.extended)
+
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -209,8 +213,6 @@ fun Project.loadLocalProperty(
     if (!localPropertiesFile.exists())
         throw GradleException("can not find property : $propertyName")
     localProperties.load(localPropertiesFile.inputStream())
-    val property = localProperties.getProperty(propertyName)
-    if (property == null)
-        throw GradleException("can not find property : $propertyName")
-    return property
+    return localProperties.getProperty(propertyName)
+        ?: throw GradleException("can not find property : $propertyName")
 }

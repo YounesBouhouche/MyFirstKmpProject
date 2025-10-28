@@ -16,10 +16,13 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -55,7 +58,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 @Preview
 fun App(batteryManager: BatteryManager) {
@@ -70,7 +73,7 @@ fun App(batteryManager: BatteryManager) {
     setSingletonImageLoaderFactory { context ->
         getAsyncImageLoader(context)
     }
-    MaterialTheme {
+    MaterialExpressiveTheme {
         Scaffold(
             Modifier.fillMaxSize(),
             topBar = {
@@ -110,7 +113,11 @@ fun App(batteryManager: BatteryManager) {
                             Res.string.battery_level,
                             batteryManager.getBatteryLevel()
                         ))
-                        Button({ navController.navigate("search") }) {
+                        Button(
+                            { navController.navigate("search") },
+                            ButtonDefaults.shapesFor(ButtonDefaults.MediumContainerHeight),
+                            contentPadding = ButtonDefaults.contentPaddingFor(ButtonDefaults.MediumContainerHeight),
+                        ) {
                             Text("Go to Search")
                         }
                     }

@@ -11,7 +11,6 @@ actual object AppSecrets {
                 field.isAccessible = true
                 field.get(null) as? String
             }.getOrNull()
-
             if (!fromGenerated.isNullOrBlank()) return fromGenerated
             return ""
         }
