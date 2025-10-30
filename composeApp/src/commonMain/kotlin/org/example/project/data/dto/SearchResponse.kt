@@ -4,7 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SearchResponse(
-    val next_page: String,
+    val next_page: String? = null,
+    val prev_page: String? = null,
     val page: Int,
     val per_page: Int,
     val photos: List<Photo>,

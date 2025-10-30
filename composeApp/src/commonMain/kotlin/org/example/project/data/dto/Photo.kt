@@ -10,7 +10,7 @@ data class Photo(
     val id: Int,
     val liked: Boolean,
     val photographer: String,
-    val photographer_id: Int,
+//    val photographer_id: String,
     val photographer_url: String,
     val src: Src,
     val url: String,

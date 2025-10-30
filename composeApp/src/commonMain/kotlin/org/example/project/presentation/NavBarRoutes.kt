@@ -1,6 +1,7 @@
 package org.example.project.presentation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -17,7 +18,12 @@ enum class NavBarRoutes(
     ),
     Search(
         icon = Icons.Default.Search,
-        label = "Settings",
+        label = "Search",
         destination = Routes.Search
-    )
+    ),
+    History(
+        icon = Icons.Default.History,
+        label = "History",
+        destination = Routes.History
+    ),
 }

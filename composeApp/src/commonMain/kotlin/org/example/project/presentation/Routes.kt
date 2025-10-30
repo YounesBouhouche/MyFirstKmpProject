@@ -9,5 +9,8 @@ sealed class Routes {
 
     @Serializable
     data object Search: Routes()
+
+    @Serializable
+    data object History: Routes()
 }
 

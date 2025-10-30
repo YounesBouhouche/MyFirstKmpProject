@@ -76,6 +76,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.android)
             implementation(libs.coil.network.okhttp)
+            implementation("com.github.khushpanchal:Ketch:2.0.5")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -104,6 +105,8 @@ kotlin {
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
             implementation(libs.material.kolor)
+            implementation(libs.androidx.datastore)
+            implementation(libs.androidx.datastore.datastore.preferences)
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -117,6 +120,7 @@ kotlin {
             implementation(libs.oshi.core)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.java)
+            implementation("org.asynchttpclient:async-http-client:3.0.3")
         }
     }
 }
