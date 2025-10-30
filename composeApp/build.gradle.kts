@@ -81,10 +81,10 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(libs.material.icons.extended)
-            implementation("org.jetbrains.compose.material3:material3:1.9.0-alpha04")
-            implementation("org.jetbrains.compose.material3.adaptive:adaptive:1.2.0-alpha05")
-            implementation("org.jetbrains.compose.material3.adaptive:adaptive-layout:1.2.0-alpha05")
-            implementation("org.jetbrains.compose.material3.adaptive:adaptive-navigation:1.2.0-alpha05")
+            implementation(libs.material3)
+            implementation(libs.adaptive)
+            implementation(libs.adaptive.layout)
+            implementation(libs.adaptive.navigation)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -103,7 +103,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
-
+            implementation(libs.material.kolor)
         }
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)

@@ -1,8 +1,8 @@
 package org.example.project.di
 
-import org.example.project.dependencies.MyRepo
-import org.example.project.dependencies.MyRepoImpl
-import org.example.project.dependencies.MyViewModel
+import org.example.project.domain.MyRepo
+import org.example.project.domain.MyRepoImpl
+import org.example.project.presentation.MyViewModel
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
