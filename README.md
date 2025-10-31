@@ -154,6 +154,20 @@ See [libs.versions.toml](./gradle/libs.versions.toml) for complete dependency li
 - The build system generates API key files at compile time
 - Never commit `local.properties` or hardcode API keys in source files
 
+## Screenshots
+
+<img width="1920" height="1080" alt="Screenshot (115)" src="https://github.com/user-attachments/assets/318189bd-8634-4dfd-810a-b4bf06cd8487" />
+<img width="1920" height="1080" alt="Screenshot (116)" src="https://github.com/user-attachments/assets/c1cf40bb-4902-46d6-8816-0e0ecc8f7dad" />
+<img width="1920" height="1080" alt="Screenshot (117)" src="https://github.com/user-attachments/assets/01cc9b44-bd9f-4d87-8878-fff5e6139903" />
+<img width="1920" height="1080" alt="Screenshot (119)" src="https://github.com/user-attachments/assets/05dd75de-e66b-4824-a561-33093f99b240" />
+<img width="1920" height="1080" alt="Screenshot (120)" src="https://github.com/user-attachments/assets/54fa5d04-15fd-4324-b7b7-d024966ed7cf" />
+<img width="1920" height="1080" alt="Screenshot (121)" src="https://github.com/user-attachments/assets/f2c6b39d-bcd1-4f18-97d5-ac18315fe760" />
+<img width="1920" height="1080" alt="Screenshot (123)" src="https://github.com/user-attachments/assets/5cef29d4-79bb-4535-9da2-9fc17d3aa01f" />
+<img width="1920" height="1080" alt="Screenshot (126)" src="https://github.com/user-attachments/assets/d55fa756-21e8-4336-9adc-b52b507235ae" />
+<img width="1920" height="1080" alt="Screenshot (127)" src="https://github.com/user-attachments/assets/55a6938e-ac75-489f-88fa-4875b3bb2407" />
+<img width="1920" height="1080" alt="Screenshot (128)" src="https://github.com/user-attachments/assets/c2810ed8-fe5a-4092-bc75-b420b728a1fd" />
+<img width="1920" height="1080" alt="Screenshot (129)" src="https://github.com/user-attachments/assets/bf911a26-9532-45a8-99d8-d9c5178606a7" />
+
 ## 📄 License
 
 This project is a demonstration application. Please refer to Pexels API terms of service when using the Pexels API.
