@@ -48,6 +48,7 @@ fun App(
     lightColorScheme: ColorScheme = MaterialTheme.colorScheme,
     batteryManager: BatteryManager,
     pickFile: ((mimeType: String, onSave: (String) -> Unit) -> Unit)? = null,
+    topBar: @Composable (content: @Composable () -> Unit) -> Unit = { it() },
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     val viewModel = koinViewModel<MyViewModel>()
@@ -74,30 +75,32 @@ fun App(
     ) {
         Scaffold(
             topBar = {
-                TopAppBar(
-                    title = {
-                        Text(
-                            "Compose Multiplatform App",
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    },
-                    actions = {
-                        IconButton({
-                            viewModel.switchTheme()
-                        }) {
-                            Icon(
-                                when(theme) {
-                                    Themes.LIGHT -> Icons.Default.LightMode
-                                    Themes.DARK -> Icons.Default.DarkMode
-                                    Themes.SYSTEM_DEFAULT -> Icons.Default.BrightnessAuto
-                                },
-                                null
+                topBar {
+                    TopAppBar(
+                        title = {
+                            Text(
+                                "Compose Multiplatform App",
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
+                        },
+                        actions = {
+                            IconButton({
+                                viewModel.switchTheme()
+                            }) {
+                                Icon(
+                                    when(theme) {
+                                        Themes.LIGHT -> Icons.Default.LightMode
+                                        Themes.DARK -> Icons.Default.DarkMode
+                                        Themes.SYSTEM_DEFAULT -> Icons.Default.BrightnessAuto
+                                    },
+                                    null
+                                )
+                            }
+                            actions(this)
                         }
-                        actions(this)
-                    }
-                )
+                    )
+                }
             },
             contentWindowInsets = ScaffoldDefaults.contentWindowInsets.exclude(WindowInsets.navigationBars)
         ) { paddingValues ->
