@@ -76,7 +76,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.android)
             implementation(libs.coil.network.okhttp)
-            implementation("com.github.khushpanchal:Ketch:2.0.5")
+            implementation(libs.ketch)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -120,7 +120,7 @@ kotlin {
             implementation(libs.oshi.core)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.ktor.client.java)
-            implementation("org.asynchttpclient:async-http-client:3.0.3")
+            implementation(libs.async.http.client)
         }
     }
 }

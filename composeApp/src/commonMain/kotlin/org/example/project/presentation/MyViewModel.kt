@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.example.project.data.dto.Photo
 import org.example.project.data.dto.SearchResponse
@@ -44,6 +45,9 @@ class MyViewModel(
         MutableStateFlow<Resource<SearchResponse, NetworkError>>(Resource.Idle)
     val searchResult = _searchResult.asStateFlow()
 
+    private val _downloadState = MutableStateFlow(DownloadState())
+    val downloadState = _downloadState.asStateFlow()
+
     private val _selectedPicture = MutableStateFlow<Photo?>(null)
     val selectedPicture = _selectedPicture.asStateFlow()
 
@@ -53,6 +57,7 @@ class MyViewModel(
 
     fun unselectPicture() {
         _selectedPicture.value = null
+        _downloadState.value = DownloadState()
     }
 
     fun getHelloWorld(): String {
@@ -88,16 +93,37 @@ class MyViewModel(
     }
 
     fun download(url: String, path: String) {
+        _downloadState.update {
+            it.copy(
+                status = Status.DOWNLOADING,
+                progress = 0f
+            )
+        }
         _selectedPicture.value?.let {
             viewModelScope.launch(Dispatchers.IO) {
                 downloadUseCase(
                     url,
                     path,
-                    onError = {
-
+                    onError = { error ->
+                        _downloadState.update {
+                            it.copy(
+                                status = Status.ERROR,
+                                errorMessage = error.message
+                            )
+                        }
                     },
-                    onUpdate = {
-
+                    onUpdate = { progress ->
+                        _downloadState.update {
+                            it.copy(
+                                status = Status.DOWNLOADING,
+                                progress = progress
+                            )
+                        }
+                    },
+                    onSuccess = {
+                        _downloadState.update {
+                            it.copy(status = Status.SUCCESS)
+                        }
                     }
                 )
             }

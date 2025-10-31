@@ -5,6 +5,7 @@ expect class DownloadUseCase {
         url: String,
         path: String,
         onUpdate: (Float) -> Unit,
-        onError: (Exception) -> Unit
+        onError: (Exception) -> Unit,
+        onSuccess: () -> Unit,
     )
 }

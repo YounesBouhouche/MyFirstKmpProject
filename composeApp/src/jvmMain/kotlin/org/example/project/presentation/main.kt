@@ -1,22 +1,13 @@
 package org.example.project.presentation
 
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Maximize
 import androidx.compose.material.icons.filled.Minimize
-import androidx.compose.material.icons.filled.Rectangle
-import androidx.compose.material.icons.filled.Restore
-import androidx.compose.material.icons.filled.Window
 import androidx.compose.material.icons.outlined.Fullscreen
 import androidx.compose.material.icons.outlined.FullscreenExit
-import androidx.compose.material.icons.outlined.Rectangle
-import androidx.compose.material.icons.outlined.Square
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.remember
-import androidx.compose.ui.unit.DpSize
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.application
@@ -24,7 +15,6 @@ import androidx.compose.ui.window.rememberWindowState
 import org.example.project.di.initKoin
 import org.example.project.util.BatteryManager
 import java.awt.FileDialog
-import java.util.logging.Logger
 
 fun main() {
     initKoin()
