@@ -18,3 +18,4 @@ captures
 **/xcshareddata/WorkspaceSettings.xcsettings
 node_modules/
 composeApp/sekret.properties
+iosApp/iosApp/Secrets.plist
