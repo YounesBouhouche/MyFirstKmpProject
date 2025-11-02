@@ -52,7 +52,9 @@ A modern Kotlin Multiplatform application that allows users to search for high-q
 
 ### API Key Configuration
 
-The application requires a Pexels API key to function. You need to add your API key to the `local.properties` file to keep it secure and prevent it from being committed to version control.
+The application requires a Pexels API key to function. The configuration differs slightly between platforms:
+
+#### Android & Desktop (JVM)
 
 1. Create or edit `local.properties` in the root directory of the project:
    ```properties
@@ -64,6 +66,28 @@ The application requires a Pexels API key to function. You need to add your API 
 3. For CI/CD or production builds, you can also provide the API key via:
    - Environment variable: `API_KEY`
    - Gradle property: `-PapiKey=YOUR_API_KEY`
+
+#### iOS
+
+1. Create a `Secrets.plist` file in the `/iosApp/iosApp` directory using the provided template:
+   ```bash
+   # Copy the template file
+   cp iosApp/iosApp/Secrets.plist.template iosApp/iosApp/Secrets.plist
+   ```
+
+2. Edit `Secrets.plist` and replace `YOUR_PEXELS_API_KEY_HERE` with your actual API key:
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+   <plist version="1.0">
+   <dict>
+       <key>apiKey</key>
+       <string>YOUR_ACTUAL_PEXELS_API_KEY</string>
+   </dict>
+   </plist>
+   ```
+
+3. The `Secrets.plist` file is already included in `.gitignore`, so your API key will not be committed to the repository.
 
 ### Build and Run
 
@@ -150,9 +174,12 @@ See [libs.versions.toml](./gradle/libs.versions.toml) for complete dependency li
 
 ## 🔒 Security
 
-- API keys are stored in `local.properties` which is excluded from version control
+- API keys are stored in platform-specific configuration files which are excluded from version control:
+  - Android/Desktop: `local.properties`
+  - iOS: `iosApp/iosApp/Secrets.plist`
 - The build system generates API key files at compile time
-- Never commit `local.properties` or hardcode API keys in source files
+- Never commit `local.properties`, `Secrets.plist`, or hardcode API keys in source files
+- Template files (`Secrets.plist.template`) are provided for easy setup without exposing credentials
 
 ## Screenshots
 
